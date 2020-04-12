@@ -1,7 +1,31 @@
 {% extends "rest_framework/base.html" %}
 
 {% block bootstrap_theme %}
-    <link rel="stylesheet" href="https://bootswatch.com/4/spacelab/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css" type="text/css">
 {% endblock %}
 
-{% block bootstrap_navbar_variant %}{% endblock %}
+{% block bootstrap_navbar_variant %}navbar navbar-static-top navbar-default{% endblock %}
+
+{% block title %} Handy Dev Hints - API {% endblock %}
+{% load i18n %}
+
+{% block branding %}
+  <a class="navbar-brand" rel="nofollow" href="#">
+    {% trans 'API Browser' %}
+  </a>
+{% endblock %}
+{% block userlinks %}
+  <ul class="nav navbar-nav">
+    <li>
+      <a class="" rel="nofollow" target="_blank" href="/redoc/">
+        {% trans 'ReDoc' %}
+      </a>
+    </li>
+    <li>
+      <a class="" rel="nofollow" target="_blank" href="/swagger-ui/">
+        {% trans 'Swagger UI' %}
+      </a>
+    </li>
+  </ul>
+  {{ block.super }}
+{% endblock %}

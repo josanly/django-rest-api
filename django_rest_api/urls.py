@@ -49,7 +49,7 @@ urlpatterns = [
     # Route TemplateView to serve the ReDoc template.
     #   * Provide `extra_context` with view name of `SchemaView`.
     #path('redoc/', views.ReDocView.as_view(), name='redoc'),
-    path('docs/', TemplateView.as_view(
+    path('redoc/', TemplateView.as_view(
         template_name='core/redoc.html',
         extra_context={'schema_url':'openapi-schema'}
     ), name='apidoc'),

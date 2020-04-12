@@ -1,0 +1,10 @@
+{% extends "rest_framework/login.html" %}
+
+{% block bootstrap_theme %}
+  <link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css" type="text/css">
+{% endblock %}
+
+{% load i18n %}
+{% block branding %}
+    <h3 style="margin: 0 0 20px;">{% trans 'API Browser' %}</h3>
+{% endblock %}
