@@ -36,19 +36,27 @@ router.register(r'groups', views.GroupViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    # Route TemplateView to serve the ReDoc template.
-    #   * Provide `extra_context` with view name of `SchemaView`.
-    #path('redoc/', views.ReDocView.as_view(), name='redoc'),
-    path('redoc/', TemplateView.as_view(
-        template_name='core/redoc.html',
-        extra_context={'schema_url':'openapi-schema'}
-    ), name='redoc'),
+
     # Use the `get_schema_view()` helper to add a `SchemaView` to project URLs.
     #   * `title` and `description` parameters are passed to `SchemaGenerator`.
     #   * Provide view name for use with `reverse()`.
     path('openapi', get_schema_view(
-        title="Django REST API",
-        description="API for all things …",
+        title="REST API Documentation",
+        description="API for all data required",
         version="1.0.0"
     ), name='openapi-schema'),
+
+    # Route TemplateView to serve the ReDoc template.
+    #   * Provide `extra_context` with view name of `SchemaView`.
+    #path('redoc/', views.ReDocView.as_view(), name='redoc'),
+    path('docs/', TemplateView.as_view(
+        template_name='core/redoc.html',
+        extra_context={'schema_url':'openapi-schema'}
+    ), name='apidoc'),
+    # Route TemplateView to serve Swagger UI template.
+    #   * Provide `extra_context` with view name of `SchemaView`.
+    path('swagger-ui/', TemplateView.as_view(
+        template_name='core/swagger-ui.html',
+        extra_context={'schema_url':'openapi-schema'}
+    ), name='swagger-ui'),
 ]
