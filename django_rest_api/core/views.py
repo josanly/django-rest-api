@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
+from django.views.generic import TemplateView
 from rest_framework import viewsets
 from rest_framework import permissions
 from django_rest_api.core.serializers import UserSerializer, GroupSerializer
@@ -21,3 +22,8 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class ReDocView(TemplateView):
+    template_name = "core/redoc.html"
+    extra_context={'schema_url':'openapi'}

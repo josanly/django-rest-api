@@ -21,7 +21,10 @@ Including another URLconf
 # ]
 
 from django.urls import include, path
+from django.views.generic import TemplateView
 from rest_framework import routers
+from rest_framework.schemas import get_schema_view
+from rest_framework.documentation import include_docs_urls
 from django_rest_api.core import views
 
 router = routers.DefaultRouter()
@@ -32,5 +35,20 @@ router.register(r'groups', views.GroupViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # Route TemplateView to serve the ReDoc template.
+    #   * Provide `extra_context` with view name of `SchemaView`.
+    #path('redoc/', views.ReDocView.as_view(), name='redoc'),
+    path('redoc/', TemplateView.as_view(
+        template_name='core/redoc.html',
+        extra_context={'schema_url':'openapi-schema'}
+    ), name='redoc'),
+    # Use the `get_schema_view()` helper to add a `SchemaView` to project URLs.
+    #   * `title` and `description` parameters are passed to `SchemaGenerator`.
+    #   * Provide view name for use with `reverse()`.
+    path('openapi', get_schema_view(
+        title="Django REST API",
+        description="API for all things …",
+        version="1.0.0"
+    ), name='openapi-schema'),
 ]
