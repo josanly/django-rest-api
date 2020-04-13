@@ -27,7 +27,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 class AnalysisViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows groups to be viewed or edited.
+    API endpoint that allows analyses to be viewed or edited.
     """
     queryset = Analysis.objects.all()
     serializer_class = AnalysisSerializer
