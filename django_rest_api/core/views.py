@@ -3,7 +3,8 @@ from django.contrib.auth.models import User, Group
 from django.views.generic import TemplateView
 from rest_framework import viewsets
 from rest_framework import permissions
-from django_rest_api.core.serializers import UserSerializer, GroupSerializer
+from django_rest_api.core.serializers import UserSerializer, GroupSerializer, AnalysisSerializer
+from django_rest_api.core.models import Analysis
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -24,6 +25,10 @@ class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class ReDocView(TemplateView):
-    template_name = "core/redoc.html"
-    extra_context={'schema_url':'openapi'}
+class AnalysisViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Analysis.objects.all()
+    serializer_class = AnalysisSerializer
+    permission_classes = [permissions.IsAuthenticated]
