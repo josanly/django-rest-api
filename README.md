@@ -1,12 +1,26 @@
 # REST API build with Django 
 
+This project aims to build a REST API using Django and Django REST Framework.
+
 ## Dependencies
+
+All of configurations have been made using Linux OS (Kubuntu-18.04 LTS). Package names could change between distributions.
 
 This project required Graphviz to generate UML Class Diagram.
 
 ```bash
    sudo apt install graphviz
 ```
+
+This project use Python 3.6 and virtualenv to manage its environment.
+
+
+```bash
+   sudo apt install python3.6 python3-venv python3-pip
+   sudo python3 -m pip install venv
+```
+
+Only Python 3.6 has been tested but the project may be compliant with latest release.
 
 ## Build your dev environment
 
@@ -42,3 +56,45 @@ Or you can specify the address and port:
 ```bash
   (env) python manage.py graph_models --pydot -a -g -o docs/_static/images/app_uml_class_diagram.png
 ```
+
+## Build documentation
+
+[Sphinx](http://www.sphinx-doc.org/en/master/) framework is used to generate the project documentation.
+
+```bash
+  (env) cd docs
+  (env) make html
+```
+
+To generate automatically API doc:
+
+```bash
+  (env) cd docs
+  (env) sphinx-apidoc -o . ..
+```
+
+### Automatic Documentation generation (TODO)
+
+1. Generate automatically technical doc from sources
+2. inject it into special part of documentation
+3. Generate UML Class Diagram and include it
+4. convert README.md to rst using pandoc and include it into documentation
+5. add a task in Sphinx Makefile to run all of step in simple way
+
+## Documentation of REST API for Developpers
+
+### Generating OpenAPI schema
+
+```bash
+  (env) python manage.py generateschema &> openapi-schema.yml
+```
+
+In this project it is automatically done when calling the url `/openapi`.
+
+### Swagger and ReDoc automatic REST API documentation
+
+You will find 3 pssibilities to browse and test this REST API:
+
+* Built-in web pages: just open the root url into a web browser and you will have basic web page to browse and test the API
+* [Swagger UI](https://swagger.io/) page: `/swagger-ui/`
+* [ReDOc](https://github.com/Redocly/redoc) page : `/redoc/`
