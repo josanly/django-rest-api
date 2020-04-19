@@ -10,7 +10,8 @@ Welcome to Django REST API's documentation!
    :maxdepth: 2
    :caption: Contents:
    
-   modules.rst
+   readme.rst
+   apidoc.rst
 
 
 Indices and tables

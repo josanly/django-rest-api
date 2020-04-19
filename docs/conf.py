@@ -23,6 +23,7 @@ django.setup()
 project = 'Django REST API'
 copyright = '2020, josanly'
 author = 'josanly'
+version = '1.0.0'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0.0'

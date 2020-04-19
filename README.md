@@ -1,4 +1,4 @@
-# REST API build with Django 
+# REST API build with Django
 
 This project aims to build a REST API using Django and Django REST Framework.
 
@@ -9,18 +9,34 @@ All of configurations have been made using Linux OS (Kubuntu-18.04 LTS). Package
 This project required Graphviz to generate UML Class Diagram.
 
 ```bash
-   sudo apt install graphviz
+  sudo apt install graphviz
 ```
 
 This project use Python 3.6 and virtualenv to manage its environment.
 
-
 ```bash
-   sudo apt install python3.6 python3-venv python3-pip
-   sudo python3 -m pip install venv
+  sudo apt install python3.6 python3-venv python3-pip
+  sudo python3 -m pip install venv
 ```
 
-Only Python 3.6 has been tested but the project may be compliant with latest release.
+Only Python 3.6 has been tested but the project may be compliant with latest releases.
+
+During documentation building, the README in Markdown format is converted to ReStructured Text unsing Pandoc.
+
+```bash
+  sudo apt install pandoc
+```
+
+To build documentation in pdf format, you need to have the following packages installed on your system:
+
+* texlive-latex-recommended
+* texlive-fonts-recommended
+* texlive-latex-extra
+* latexmk
+
+```bash
+  sudo apt install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra latexmk
+```
 
 ## Build your dev environment
 
