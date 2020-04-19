@@ -15,6 +15,7 @@ help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo "Home made rules:"
 	@echo "  pandoc      to convert the README from markdown to ReST format"
+	@echo "  apidoc      to generate automatically documentaiton from Python modules"
 	@echo "  doc         to make man, epub, latexpdf and html documentation (see their rules)"
 
 # Compile all data and generate full documentation

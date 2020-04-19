@@ -70,7 +70,7 @@ Or you can specify the address and port:
 ## Generate UML Class Diagram
 
 ```bash
-  (env) python manage.py graph_models --pydot -a -g -o docs/_static/images/app_uml_class_diagram.png
+  (env) python manage.py graph_models --pydot -a -g -o /path/to/directory/app_uml_class_diagram.png
 ```
 
 ## Build documentation
