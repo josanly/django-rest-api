@@ -82,20 +82,19 @@ Or you can specify the address and port:
   (env) make html
 ```
 
-To generate automatically API doc:
+### Automatic Documentation generation
+
+Using the command `make doc` all technical documentation is automatically generated and added to the project documentation.
 
 ```bash
   (env) cd docs
-  (env) sphinx-apidoc -o . ..
+  (env) make doc
 ```
 
-### Automatic Documentation generation (TODO)
-
-1. Generate automatically technical doc from sources
-2. inject it into special part of documentation
-3. Generate UML Class Diagram and include it
-4. convert README.md to rst using pandoc and include it into documentation
-5. add a task in Sphinx Makefile to run all of step in simple way
+1. Generate automatically technical doc from sources (output in `docs/api/` folder)
+2. Inject it into special part of documentation (see `apidoc.rst` file)
+3. Generate UML Class Diagram and include it too
+4. Convert README.md to ReST using pandoc and add it at the root part of documentation
 
 ## Documentation of REST API for Developpers
 
