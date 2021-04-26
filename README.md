@@ -106,6 +106,15 @@ Using the command `make doc` all technical documentation is automatically genera
 
 In this project it is automatically done when calling the url `/openapi`.
 
+### Create a user to log in
+
+```bash
+  (env) python manage.py createsuperuser
+  # change password:
+  (env) python manage.py changepassword <username>
+```
+
+
 ### Swagger and ReDoc automatic REST API documentation
 
 You will find 3 pssibilities to browse and test this REST API:
