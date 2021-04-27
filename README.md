@@ -46,6 +46,17 @@ To build documentation in pdf format, you need to have the following packages in
   (env) pip install -r requirements.txt
 ```
 
+## Update your dev environment
+
+```bash
+  python3 -m venv env
+  source env/bin/activate
+  (env) pip install ....
+
+  # adding sed command to fix a small issue with a package in the list
+  (env) pip freeze | sed '/pkg-resources==0.0.0/d' | cat &> requirements.txt
+```
+
 ## Launch local server
 
 If it is the first time you run the server locally, you need to initiate the database.
