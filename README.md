@@ -78,6 +78,18 @@ Or you can specify the address and port:
   (env) python manage.py runserver <port>
 ```
 
+## Deploy on Heroku
+
+In local, you will need psycopg2 package but it triggers some installing issues.
+To fix these issues, install a specific version of this package: `psycopg2==2.7.7`.
+
+For deployment on Heroku server, this fix blocks the process. Remove psycopg2==2.7.7 line in `requirements.txt` before pushing branch on heroku.
+
+```bash
+(env) pip freeze | sed -e '/pkg-resources==0.0.0/d' -e '/psycopg2==2.7.7/d' | cat &> requirements.txt
+```
+
+
 ## Generate UML Class Diagram
 
 ```bash
