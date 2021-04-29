@@ -139,3 +139,11 @@ Using the command `make doc` all technical documentation is automatically genera
 2. Inject it into special part of documentation (see `apidoc.rst` file)
 3. Generate UML Class Diagram and include it too
 4. Convert README.md to ReST using pandoc and add it at the root part of documentation
+
+### Auto generated files of documentation in `docs/api/` folder
+
+_Do not commit files from the folder `docs/api/`._
+
+The folder `docs/api/` need to be keep into the ile tree of documentation part
+(see `.gitkeep` file) but all files inside this folder must be generated
+automatically and not commited.
