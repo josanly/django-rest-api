@@ -30,10 +30,12 @@ from rest_framework.schemas import get_schema_view
 from rest_framework.documentation import include_docs_urls
 from django_rest_api.core import views
 
+# https://www.django-rest-framework.org/api-guide/routers/#defaultrouter
+# to know url name (derived from basename)
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-router.register(r'analyses', views.AnalysisViewSet)
+router.register(r'users',    views.UserViewSet,     basename='users')
+router.register(r'groups',   views.GroupViewSet,    basename='groups')
+router.register(r'analyses', views.AnalysisViewSet, basename='analyses')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
