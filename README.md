@@ -46,7 +46,7 @@ To build documentation in pdf format, you need to have the following packages in
   (env) pip install -r requirements.txt
 ```
 
-## Update your dev environment
+### Update your dev environment
 
 ```bash
   python3 -m venv env
@@ -78,19 +78,46 @@ Or you can specify the address and port:
   (env) python manage.py runserver <port>
 ```
 
+### Create a user to log in
+
+```bash
+  (env) python manage.py createsuperuser
+  # change password:
+  (env) python manage.py changepassword <username>
+```
+
 ## Deploy on Heroku
 
 In local, you will need psycopg2 package but it triggers some installing issues.
 To fix these issues, install a package from OS : `sudo apt install libpq-dev`.
 
+## Documentation of REST API for Developpers
 
-## Generate UML Class Diagram
+### Generating OpenAPI schema
+
+```bash
+  (env) python manage.py generateschema &> openapi-schema.yml
+```
+
+In this project it is automatically done when calling the url `/openapi`.
+
+### Swagger and ReDoc automatic REST API documentation
+
+You will find 3 pssibilities to browse and test this REST API:
+
+* Built-in web pages: just open the root url into a web browser and you will have basic web page to browse and test the API
+* [Swagger UI](https://swagger.io/) page: `/swagger-ui/`
+* [ReDOc](https://github.com/Redocly/redoc) page : `/redoc/`
+
+## Documentation
+
+### Generate UML Class Diagram
 
 ```bash
   (env) python manage.py graph_models --pydot -a -g -o /path/to/directory/app_uml_class_diagram.png
 ```
 
-## Build documentation
+### Build documentation
 
 [Sphinx](http://www.sphinx-doc.org/en/master/) framework is used to generate the project documentation.
 
@@ -112,30 +139,3 @@ Using the command `make doc` all technical documentation is automatically genera
 2. Inject it into special part of documentation (see `apidoc.rst` file)
 3. Generate UML Class Diagram and include it too
 4. Convert README.md to ReST using pandoc and add it at the root part of documentation
-
-## Documentation of REST API for Developpers
-
-### Generating OpenAPI schema
-
-```bash
-  (env) python manage.py generateschema &> openapi-schema.yml
-```
-
-In this project it is automatically done when calling the url `/openapi`.
-
-### Create a user to log in
-
-```bash
-  (env) python manage.py createsuperuser
-  # change password:
-  (env) python manage.py changepassword <username>
-```
-
-
-### Swagger and ReDoc automatic REST API documentation
-
-You will find 3 pssibilities to browse and test this REST API:
-
-* Built-in web pages: just open the root url into a web browser and you will have basic web page to browse and test the API
-* [Swagger UI](https://swagger.io/) page: `/swagger-ui/`
-* [ReDOc](https://github.com/Redocly/redoc) page : `/redoc/`
